@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <title>{% block title %}Personal Finance Tracker{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/6beec9d3ad.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        <script>
+            var UPDATE_TRANSACTIONS_URL = "{% url 'update_transaction' %}";
+            var DELETE_TRANSACTIONS_URL = "{% url 'delete_transaction' %}";
+        </script>
+        
+
+</head>
+<body>
+    <header>
+        {% if user.is_authenticated %}
+        <nav>
+            <ul>
+                <li><a href="{% url 'dashboard' %}" class="nav-title">
+                    <i class="fas fa-wallet"></i>
+                    Personal Finance Tracker
+                </a></li>
+                <li><a href="{% url 'dashboard' %}">Home</a></li>
+                <li><a href="{% url 'financials' %}">Financials</a></li>
+                <li><a href="{% url 'trends' %}">Trends</a></li>
+                <li><a href="{% url 'budget' %}">Budget</a></li>
+                <li><a href="{% url 'reports' %}">Reports</a></li>
+                <li><a href="{% url 'update_profile' %}">User Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    {% else %}
+        <nav>
+            <ul>
+                <li><a href="{% url 'dashboard' %}" class="nav-title">
+                    <i class="fas fa-wallet"></i>
+                    Personal Finance Tracker
+                </a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+        </nav>
+    {% endif %}
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>© 2023 Personal Finance Tracker</p>
+    </footer>
+</body>
+</html>
