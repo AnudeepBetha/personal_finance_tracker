@@ -1,0 +1,73 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.budget-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.budget-form {
+    width: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    margin: 20px 0;
+}
+
+.budget-form input[type="number"] {
+    width: 80%; /* Customize the width */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.budget-btn-save,
+.budget-btn-cancel {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
+
+.budget-btn-cancel {
+    background-color: #f4f4f4;
+    color: black;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget-btn-cancel:hover {
+    background-color: #bdbdbd;
+}
+
+.budget-btn-save:hover {
+    background-color: #45a049;
+}

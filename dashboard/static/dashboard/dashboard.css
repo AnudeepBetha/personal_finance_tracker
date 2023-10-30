@@ -1,0 +1,44 @@
+table {
+    margin: 10px auto 30px;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 80%; 
+    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; 
+    overflow: hidden;
+}
+
+
+table th {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f4f4f4; 
+    padding: 10px 15px;
+}
+
+
+table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+table td i {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #007BFF;
+}
+
+.delete-icon{
+    color: red;
+}
+
+.delete-icon:hover, .edit-icon:hover, .save-icon:hover, input[type="date"]:hover{
+    cursor: pointer;
+}
+
+.save-icon{
+    color: rgb(2, 170, 2);
+}

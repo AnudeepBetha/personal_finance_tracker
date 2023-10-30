@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<head>
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <link rel="stylesheet" href="{% static 'dashboard/dashboard.css' %}">
+</head>
+<body>
+<h1>Welcome, {{ user.username | title }}!</h1>
+</br>
+<h1>Dashboard</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Type</th>
+        <th>Expense Type</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for transaction in transactions %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td class="transaction-type">{{ transaction.get_transaction_type_display }}</td>
+          <td>{{ transaction.get_expense_type_display }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.date|date:"m-d-Y" }}</td>
+          <td>
+            <i class="fas fa-pencil-alt edit-icon" data-id="{{ transaction.TRANSACTION_ID }}"></i>
+            <i class="fa fa-trash delete-icon" data-id="{{ transaction.TRANSACTION_ID }}"></i>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <script src="{% static 'dashboard/dashboard.js' %}"></script>
+</body>
+{% endblock %}

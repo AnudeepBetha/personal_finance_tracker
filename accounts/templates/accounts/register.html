@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<head><link rel="stylesheet" href="{% static 'accounts/accounts.css' %}"></head>
+  <form method="post">
+  <h2>Register</h2>
+  {% csrf_token %}
+    <p>Already have an Account! Please Click Here to <a href="{% url 'login' %}"> Login</a></p>
+
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.errors %}
+          <div class="error">{{ field.errors.as_text }}</div>
+        {% endif %}
+      </p>
+    {% endfor %}
+    
+    <div class="buttons-container">
+      <button type="submit" class="accounts-btn">Login</button>
+      <button type="reset" class="reset-btn">Reset</button>
+  </div>
+  </form>
+{% endblock %}

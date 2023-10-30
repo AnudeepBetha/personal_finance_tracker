@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'budget/reports.css' %}">
+</head>
+<h2>Report for {{ month }}</h2>
+<div class="reports-container">
+<canvas id="reportChart"></canvas>
+</div>
+<script>
+    const weeksData = {{ weeks_data_json|safe }};
+    const goal = {{ goal }};
+    
+    let reportChart = document.getElementById('reportChart').getContext('2d');
+    new Chart(reportChart, {
+        type: 'bar',
+        data: {
+            labels: weeksData.map(week => `${new Date(week.start).getMonth() + 1}/${new Date(week.start).getDate()} to ${new Date(week.end).getMonth() + 1}/${new Date(week.end).getDate()}`),
+            datasets: [{
+                label: 'Incomes',
+                data: weeksData.map(week => week.incomes),
+                backgroundColor: '#4CAF50'  // green
+            }, {
+                label: 'Expenses',
+                data: weeksData.map(week => week.expenses),
+                backgroundColor: '#FF5733'  // red
+            }, {
+                label: 'Savings',
+                data: weeksData.map(week => week.savings),
+                backgroundColor: '#337ab7'  // Blue
+            }, {
+                label: 'Goal',
+                data: new Array(4).fill(goal),
+                type: 'line',
+                backgroundColor: '#FFFF33',  // Yellow
+                borderColor: '#FFD700'  // Gold
+            }]
+        }
+    });
+</script>
+{% endblock %}

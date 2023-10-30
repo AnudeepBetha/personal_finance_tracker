@@ -1,0 +1,102 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.financials-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15%;
+    margin-top: 5vh;
+}
+
+.financials-form {
+    width: 30%;
+    min-height: 450px;
+    position: relative;
+    padding-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.income-form {
+    width: 40%;
+}
+
+.expense-form {
+    width: 40%;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.financials-btn-save,
+.financials-btn-cancel {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.financials-btn-save:hover {
+    background-color: #45a049;
+}
+
+.financials-btn-cancel {
+    background-color: #e7e5e5;
+    color: black;
+}
+
+.financials-btn-cancel:hover {
+    background-color: #bdbdbd;
+}
+
+.financials-btn-save, .financials-btn-cancel {
+    width: 30%;
+    text-align: center;
+}
+
+.financials-form input[type="text"],
+.financials-form input[type="number"],
+.financials-form input[type="date"],
+.financials-form select {
+    width: 85%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.financials-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.financials-form input[type="date"]:hover {
+    cursor: pointer;
+}

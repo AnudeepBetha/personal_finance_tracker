@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<head><link rel="stylesheet" href="{% static 'accounts/accounts.css' %}"></head>
+    
+<div class="logout-container">
+<h2> Successfully Logged Out</h2>
+    </br>
+    <p> Please Click Here to <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register.</a></p>
+</div>
+{% endblock %}

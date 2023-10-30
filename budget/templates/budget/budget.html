@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{% static 'budget/budget.css' %}">
+    </head>
+    <h2>Budget for {{ month }}</h2>
+    <div class = "budget-container">
+        <form method="post" class="budget-form">
+            <h2 class="form-title">Add/Edit your Savings Goal</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="buttons-container">
+                <button type="submit" class="budget-btn-save">Save</button>
+                <button type="button" class="budget-btn-cancel" onclick="location.href='{% url 'dashboard' %}'">Cancel</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

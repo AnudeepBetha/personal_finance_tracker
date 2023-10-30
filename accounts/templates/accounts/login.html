@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<head><link rel="stylesheet" href="{% static 'accounts/accounts.css' %}"></head>
+  <form method="post">
+  <h2>Login</h2>
+  <p>Do not have an account? Please Click Here to <a href="{% url 'register' %}">Register.</a></p>
+  {% csrf_token %}
+    {{ form.as_p }}
+    <div class="buttons-container">
+      <button type="submit" class="accounts-btn">Login</button>
+      <button type="reset" class="reset-btn">Reset</button>
+  </div>
+  </form>
+{% endblock %}
